@@ -13,7 +13,7 @@ class DeveloperPage extends StatefulWidget {
 
 class _DeveloperPageState extends State<DeveloperPage> {
   String developerInfo = '';
-  bool infoDisplayed = false;
+  String? selectedButton;
   Timer? timer;
 
   @override
@@ -22,34 +22,35 @@ class _DeveloperPageState extends State<DeveloperPage> {
       backgroundColor: ColorManager.gray,
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const Divider(
+              thickness: 5,
+              color: Color(0XFF2B2B2B),
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 1.5 / 10,
-                child: Column(
-                  children: [
-                    Icon(
-                      Icons.people,
-                      color:
-                          infoDisplayed ? ColorManager.primary : Colors.white,
-                      size: 40,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(),
-                      child: Center(
-                        child: Text(
-                          AppStrings.developers,
-                          style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                          ),
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.people,
+                    color: ColorManager.lightBlue,
+                    size: 40,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8),
+                    child: Center(
+                      child: Text(
+                        AppStrings.developers,
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             const Divider(
@@ -62,21 +63,24 @@ class _DeveloperPageState extends State<DeveloperPage> {
                 developerInfo.isNotEmpty
                     ? developerInfo
                     : AppStrings.developersInfo,
-                style: const TextStyle(
-                  fontSize: 22,
+                style: TextStyle(
+                  fontSize: 21, // Changed text size to 21
                   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                buildDeveloperButton('UX/UI Designers', AppStrings.ui),
-                buildDeveloperButton(
-                    'Mobile APP Developers', AppStrings.mobile),
-                buildDeveloperButton('Backend Developers', AppStrings.back),
-              ],
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.4, // Adjust the height as per your requirement
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  buildDeveloperButton('UX/UI Designers', AppStrings.ui),
+                  buildDeveloperButton(
+                      'Mobile APP Developers', AppStrings.mobile),
+                  buildDeveloperButton('Backend Developers', AppStrings.back),
+                ],
+              ),
             ),
           ],
         ),
@@ -94,22 +98,25 @@ class _DeveloperPageState extends State<DeveloperPage> {
             padding:
                 MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(20)),
             backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
-              if (states.contains(MaterialState.pressed)) {
-                return ColorManager.primary;
+              if (selectedButton == buttonText) {
+                return ColorManager.lightBlue;
               } else {
-                return infoDisplayed ? ColorManager.primary : ColorManager.gray;
+                return ColorManager.gray;
               }
             }),
           ),
           onPressed: () {
             setState(() {
-              this.developerInfo = developerInfo;
-              infoDisplayed = true;
+              if (selectedButton != buttonText) {
+                selectedButton = buttonText;
+                this.developerInfo = developerInfo;
+              }
             });
 
-            timer = Timer(const Duration(seconds: 10), () {
+            timer?.cancel();
+            timer = Timer(const Duration(milliseconds: 200), () {
               setState(() {
-                infoDisplayed = false;
+                // Do nothing here to keep the button colored until another button is pressed
               });
             });
           },
@@ -120,10 +127,9 @@ class _DeveloperPageState extends State<DeveloperPage> {
               Text(
                 buttonText,
                 style: TextStyle(
-                  color: infoDisplayed
+                  color: selectedButton == buttonText
                       ? Colors.white
-                      : ColorManager
-                          .gray, // Change text color to white when info is displayed
+                      : ColorManager.gray, // Change text color to white when info is displayed
                   fontSize: 24,
                 ),
               ),
