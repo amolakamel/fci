@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 class SettingsView extends StatelessWidget {
-  const SettingsView({super.key});
+  const SettingsView({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -91,58 +91,73 @@ class SettingsView extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
-                            return AlertDialog(
-                              backgroundColor:
-                                  const Color(0xFF333333).withOpacity(0.5),
-                              title: Text(
-                                AppStrings.exit,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
-                                    ?.copyWith(
-                                      color: ColorManager.white,
-                                      fontSize: AppSize.s25,
+                            return Dialog(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0), // No rounded corners
+                              ),
+                              backgroundColor: const Color(0xFF333333),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: Text(
+                                      AppStrings.exit,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                            color: ColorManager.white,
+                                            fontSize: AppSize.s25,
+                                          ),
                                     ),
-                              ),
-                              content: Text(AppStrings.sure,
-                                  style:
-                                      Theme.of(context).textTheme.headlineLarge?.copyWith(
-                                        color: ColorManager.white,
-                                        fontSize: AppSize.s25,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 0.0),
+                                    child: Text(
+                                      AppStrings.sure,
+                                      style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                                            color: ColorManager.white,
+                                            fontSize: AppSize.s20,
+                                          ),
+                                    ),
+                                  ),
+                                  ButtonBar(
+                                    children: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text(
+                                          AppStrings.cancel,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleMedium
+                                              ?.copyWith(
+                                                color: ColorManager.lightBlue,
+                                                fontSize: AppSize.s20,
+                                              ),
+                                        ),
                                       ),
+                                      TextButton(
+                                        onPressed: () {
+                                          SystemNavigator.pop();
+                                        },
+                                        child: Text(
+                                          AppStrings.ok,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleMedium
+                                              ?.copyWith(
+                                                color: ColorManager.lightBlue,
+                                                fontSize: AppSize.s20,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                              actions: <Widget>[
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text(
-                                    AppStrings.cancel,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium
-                                        ?.copyWith(
-                                          color: ColorManager.white,
-                                          fontSize: AppSize.s25,
-                                        ),
-                                  ),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    SystemNavigator.pop();
-                                  },
-                                  child: Text(
-                                    AppStrings.ok,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium
-                                        ?.copyWith(
-                                          color: ColorManager.white,
-                                          fontSize: AppSize.s25,
-                                        ),
-                                  ),
-                                ),
-                              ],
                             );
                           },
                         );

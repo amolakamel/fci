@@ -81,9 +81,13 @@ class _LecturesViewState extends State<LecturesView> {
         },
       ),
       floatingActionButton: Container(
-        decoration: BoxDecoration(
+          width: 70.0, 
+          height: 60.0, 
+          decoration: BoxDecoration(
+
           shape: BoxShape.circle,
-          border: Border.all(color: Colors.grey),
+          border: Border.all(color: Colors.grey,width: 7.0),
+          color: ColorManager.lightBlue,
         ),
         child: FloatingActionButton(
           onPressed: () async {
@@ -102,7 +106,7 @@ class _LecturesViewState extends State<LecturesView> {
             Icons.add,
             color: Colors.grey,
           ),
-          backgroundColor: ColorManager.lightBlue,
+          backgroundColor:  Colors.transparent,
           elevation: 0,
         ),
       ),

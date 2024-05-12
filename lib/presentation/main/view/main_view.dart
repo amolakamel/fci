@@ -22,6 +22,9 @@ class MainView extends StatelessWidget {
         padding: const EdgeInsets.all(AppPadding.p16),
         child: Column(
           children: [
+            const SizedBox(
+              height: AppSize.s30,
+            ),
             Expanded(
               child: Image.asset(
                 ImageAssets.fci,
@@ -34,7 +37,11 @@ class MainView extends StatelessWidget {
               AppStrings.fciText,
               textAlign: TextAlign.center,
               overflow: TextOverflow.clip,
-              style: Theme.of(context).textTheme.titleMedium,
+            //  style: Theme.of(context).textTheme.titleMedium,
+            style: TextStyle(
+              color: Color(0xFF17A6FF), // Set the text color to #17A6FF
+              fontSize: 15, // Set the font size to 15px
+  ),
             ),
             const SizedBox(
               height: AppSize.s20,

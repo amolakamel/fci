@@ -21,6 +21,9 @@ class YearsView extends StatelessWidget {
 
         child: Column(
           children: [
+              const SizedBox(
+              height: AppSize.s30,
+            ),
             SizedBox(
               height: context.height / 4,
               child: Center(
@@ -38,13 +41,13 @@ class YearsView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const SizedBox(
-                      height: AppSize.s8,
-                    ),
+                    // const SizedBox(
+                    //   height: AppSize.s0,
+                    // ),
     
                     CustomTextButton(
                       width: context.width,
-                      height: context.height / 7,
+                      height: context.height / 5.5,
                       text: AppStrings.general,
                       onTap: () => GoRouter.of(context)
                           .push(AppRouter.kCollegeSpecializationView,),
@@ -52,14 +55,14 @@ class YearsView extends StatelessWidget {
               
                     CustomTextButton(
                       width: context.width,
-                      height: context.height / 7,
+                      height: context.height / 5.5,
                       text: AppStrings.software,
                       onTap: () => GoRouter.of(context)
                           .push(AppRouter.kCollegeSpecializationView),
                     ),
                     CustomTextButton(
                       width: context.width,
-                      height: context.height / 7,
+                      height: context.height / 5.5,
                       text: AppStrings.bio,
                       onTap: () => GoRouter.of(context)
                           .push (AppRouter.kCollegeSpecializationView),
