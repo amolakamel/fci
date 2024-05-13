@@ -134,7 +134,7 @@ class SettingsView extends StatelessWidget {
                                   
                                   ),
                                     const SizedBox(
-                                      height: AppSize.s30,
+                                      height: AppSize.s16,
                                   ),
                                 
                                   ButtonBar(

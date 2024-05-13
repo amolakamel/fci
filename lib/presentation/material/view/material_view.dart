@@ -41,6 +41,9 @@ class _MaterialViewState extends State<MaterialView>
         decoration: ColorManager.backGroundColor(),
         child: Column(
           children: [
+               const SizedBox(
+                  height: 27,
+                    ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

@@ -50,9 +50,9 @@ class AppStrings {
   static const exit = "Exit";
   static const sure = "Are you sure you want exit?";
   static const developersInfo = "We are third year students\nin the\nInformation Systems Department\nwithin the\nFaculty of Computers and Information\nat\nSuez Canal University";
-  static const ui = " Ahmed Selim \n\nMahmoud Saber\n\n\n\n";
-  static const mobile = "  Ziad Waled\n\nAmal Mahmoud\n\n Nour mohamed\n\n";
-  static const back = "Ahmed Mostafa\n\n Mohamed A tef\n\nZainab Fadel\n\nHadia Mohamed";
+  static const ui = "\nAhmed Selim \n\nMahmoud Saber\n\n\n\n";
+  static const mobile = "\n Ziad Waled\n\nAmal Mahmoud\n\n Nour mohamed\n\n";
+  static const back = "\nAhmed Mostafa\n\n Mohamed A tef\n\nZainab Fadel\n\nHadia Mohamed";
   static const cancel = "Cancel";
   // static const general = "THIRD YEAR\nG E N E R A L";
 }

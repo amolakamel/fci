@@ -44,7 +44,9 @@ class _LecturesViewState extends State<LecturesView> {
         itemBuilder: (context, index) {
           return Column(
             children: [
-              SizedBox(height: 10),
+             const SizedBox(
+                  height: 10,
+                    ),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.grey,
@@ -55,6 +57,7 @@ class _LecturesViewState extends State<LecturesView> {
                     bottomRight: Radius.circular(20),
                   ),
                 ),
+              
                 child: ListTile(
                   title: Text(
                     path.basename(_files[index].file.path),
@@ -81,7 +84,7 @@ class _LecturesViewState extends State<LecturesView> {
         },
       ),
       floatingActionButton: Container(
-          width: 70.0, 
+          width: 60.0, 
           height: 60.0, 
           decoration: BoxDecoration(
 

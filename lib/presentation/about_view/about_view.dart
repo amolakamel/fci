@@ -21,6 +21,7 @@ class _DeveloperPageState extends State<DeveloperPage> {
       backgroundColor: ColorManager.gray,
       body: SingleChildScrollView(
         child: Column(
+          
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -32,6 +33,9 @@ class _DeveloperPageState extends State<DeveloperPage> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
+                  const SizedBox(
+                  height: 27,
+                    ),
                   Icon(
                     Icons.people,
                     color: ColorManager.lightBlue,
@@ -64,7 +68,7 @@ class _DeveloperPageState extends State<DeveloperPage> {
                     : AppStrings.developersInfo,
                 style: TextStyle(
                   fontSize: 21, // Changed text size to 21
-                  color: Colors.white,
+                  color: Colors.lightBlue,
                 ),
                 textAlign: TextAlign.center,
               ),
