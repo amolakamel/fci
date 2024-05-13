@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:fci/presentation/resources/color_manager.dart';
 import 'package:fci/presentation/resources/strings_manager.dart';
 import 'package:flutter/cupertino.dart';

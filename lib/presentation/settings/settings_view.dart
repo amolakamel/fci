@@ -100,8 +100,10 @@ class SettingsView extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   Padding(
-                                    padding: const EdgeInsets.all(16.0),
+            
+                                    padding: const EdgeInsets.all(16.8),
                                     child: Text(
+                                      
                                       AppStrings.exit,
                                       style: Theme.of(context)
                                           .textTheme
@@ -112,6 +114,14 @@ class SettingsView extends StatelessWidget {
                                           ),
                                     ),
                                   ),
+                                    const Divider(
+                                  thickness: 0.5,
+                                  color: Colors.white,
+                                  ),
+                                    const SizedBox(
+                                      height: AppSize.s30,
+                                  ),
+                                
                                   Padding(
                                     padding: const EdgeInsets.symmetric(horizontal: 0.0),
                                     child: Text(
@@ -121,7 +131,12 @@ class SettingsView extends StatelessWidget {
                                             fontSize: AppSize.s20,
                                           ),
                                     ),
+                                  
                                   ),
+                                    const SizedBox(
+                                      height: AppSize.s30,
+                                  ),
+                                
                                   ButtonBar(
                                     children: <Widget>[
                                       TextButton(
@@ -138,6 +153,7 @@ class SettingsView extends StatelessWidget {
                                                 fontSize: AppSize.s20,
                                               ),
                                         ),
+                                        
                                       ),
                                       TextButton(
                                         onPressed: () {
